@@ -362,7 +362,7 @@
                                     <constraint firstAttribute="width" constant="47.5" id="rb2-LQ-oyM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="mod">
+                                <state key="normal" title="xor">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="default">
