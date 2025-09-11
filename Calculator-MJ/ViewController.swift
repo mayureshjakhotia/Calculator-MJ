@@ -216,6 +216,9 @@ class ViewController: UIViewController {
                 case "mod" :
                                 result %= currentNumber
                 
+                case "xor" :
+                                result = Float(Int(result) ^ Int(currentNumber))
+                
                 default    :
                                 print("Invalid choice")
             }
