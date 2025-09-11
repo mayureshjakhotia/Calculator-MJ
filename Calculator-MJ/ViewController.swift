@@ -216,6 +216,9 @@ class ViewController: UIViewController {
                 case "mod" :
                                 result %= currentNumber
                 
+                case "xor" :
+                                result = Float(Int(result) ^ Int(currentNumber))
+                
                 default    :
                                 print("Invalid choice")
             }
@@ -309,7 +312,7 @@ class ViewController: UIViewController {
     */
     func help() {
         
-        let tutorial:String = "Hi there, How are you ? I'm awesome...Atleast the fact that I've been developed by a fresh iOS developer !\nYeah, it's true...Mayuresh never knew iOS app development & see..he made me... ;)\n \n\n A Few Tips -\n\n1. Pressing \"AC\" (All Clear) button thrice toggles me between On and Off states..I vibrate so you know it :)\n2. +, -, *, /, MOD...I support them all...e.g.(1st no) mod (2nd no) gives you remainder \n3. Type a number and press +/- to toggle signs, % to calculate percent. Also, remember to enter an operation after that (no number immediately)! \n4. I am designed such that I am precise till sufficient decimal places for most operations...Yes, but if you want more complex stuff, please let my creator know, I bet he can do it ;)\n5. Finally, I love Mayuresh & I hope you also find him awesome... Thank you guys... Now turn your iPhone to portrait mode & let's do some calulations!!! "
+        let tutorial:String = "Hi there, How are you ? I'm awesome...Atleast the fact that I've been developed by a fresh iOS developer !\nYeah, it's true...Mayuresh never knew iOS app development & see..he made me... ;)\n \n\n A Few Tips -\n\n1. Pressing \"AC\" (All Clear) button thrice toggles me between On and Off states..I vibrate so you know it :)\n2. +, -, *, /, XOR...I support them all...e.g.(1st no) xor (2nd no) gives you bitwise XOR result \n3. Type a number and press +/- to toggle signs, % to calculate percent. Also, remember to enter an operation after that (no number immediately)! \n4. I am designed such that I am precise till sufficient decimal places for most operations...Yes, but if you want more complex stuff, please let my creator know, I bet he can do it ;)\n5. Finally, I love Mayuresh & I hope you also find him awesome... Thank you guys... Now turn your iPhone to portrait mode & let's do some calulations!!! "
        
         displayHelp.text = tutorial
         
