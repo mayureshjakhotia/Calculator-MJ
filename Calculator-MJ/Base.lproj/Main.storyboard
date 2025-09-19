@@ -940,6 +940,8 @@
                             <constraint firstAttribute="trailing" secondItem="ler-UN-yus" secondAttribute="trailing" constant="50" id="YQj-rq-45K"/>
                             <constraint firstItem="tRP-50-IuU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="95" id="YXl-DT-Pid"/>
                             <constraint firstAttribute="bottom" secondItem="W3j-M5-Y2b" secondAttribute="bottom" constant="420" id="Z8B-Yl-yMF"/>
+                            <constraint firstAttribute="trailing" secondItem="XOR-btn-id" secondAttribute="trailing" id="XOR-trailing"/>
+                            <constraint firstAttribute="bottom" secondItem="XOR-btn-id" secondAttribute="bottom" constant="391" id="XOR-bottom"/>
                             <constraint firstAttribute="trailing" secondItem="JMm-yv-P4r" secondAttribute="trailing" constant="58.5" id="Zp9-3K-wgS"/>
                             <constraint firstItem="aVo-5c-4xN" firstAttribute="top" secondItem="nnq-vo-nad" secondAttribute="bottom" id="aZ8-fO-Req"/>
                             <constraint firstAttribute="trailing" secondItem="bjK-lF-bif" secondAttribute="trailing" constant="58.5" id="c3o-C8-liD"/>
