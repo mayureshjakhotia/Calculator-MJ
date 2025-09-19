@@ -11,7 +11,7 @@ import AudioToolbox
 
 class ViewController: UIViewController {
 
-    
+
     // binding of various UI elements
     @IBOutlet var firstTime: UITextField!
     @IBOutlet var displayHelp: UITextView!
@@ -21,24 +21,24 @@ class ViewController: UIViewController {
     // declaration of variables : Float
     var result:Float = Float()
     var currentNumber:Float = Float()
-    
+
     // declaration of variables : Int
     var decimalNumber:Int = 0
     var decimalTapped:Int = 0
     var displayNumber:Int = 0
     var storeZeroCount:Int = 0
     var afterDecimalCount:Int = 0
-    
+
     // declaration of variables : String
     var currentOperation:String = String()
-    
+
     // declaration of variables : Bool
     var noMoreDecimal:Bool = false
     var longPressed:Bool = false
     var switchedToOn:Bool = false
     var toggleCondition:Bool = false
     var percentCondition:Bool = false
-    
+
     /*  Called on loading of view
     *   Display some instructions
     *   AC button Tap Gesture binded with number of taps
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
         buttonACPressed.addGestureRecognizer(tapGesture)
         help()
     }
-    
+
     /*  Called on gesture of AC button click thrice
     *   Sets and unsets AC button colour, variables and text to display during On/Off states
     *   Depending on these variables, other functions operate (On state) or stop their function (Off state)
@@ -84,22 +84,22 @@ class ViewController: UIViewController {
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         }
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-       
+
     }
-    
+
     /*  Accepts Input Numbers
     *   Performs various operations based on whole numbers, decimal numbers and validation if decimal pressed more than once
     *   Displays the numbers (decimal too) in a smooth manner as soon as the buttons are pressed
     */
     @IBAction func inputNumber(sender: UIButton) {
         if(switchedToOn) {
-    
+
             if ((!toggleCondition) && (!percentCondition)) {
-                
+
                 // Decimal not pressed
                 if (decimalTapped == 0) {
                     currentNumber = currentNumber*10 + Float((sender.titleLabel?.text)!)!
@@ -114,19 +114,19 @@ class ViewController: UIViewController {
                         decimalNumber = decimalNumber*10 + Int((sender.titleLabel?.text)!)!
                         afterDecimalCount = -1
                     }
-                    
+
                     displayResult.text = ("\(displayNumber).")
-                    
+
                     for (var i = 0; i<storeZeroCount; i++) {
                         displayResult.text?.append("0" as Character)
                     }
-                    
+
                     if(decimalNumber != 0) {
                         displayResult.text?.appendContentsOf(String(decimalNumber))
                     }
                     else {
                     }
-                    
+
                     currentNumber = Float(displayResult.text!)!
                     noMoreDecimal = true
                 }
@@ -137,21 +137,21 @@ class ViewController: UIViewController {
                         currentOperation = "="
 
                 }
-                    
+
             }
             else {
                 result = 0
                 resetValueForNextInput()
                 currentOperation = "="
             }
-            
+
         }
         else {
-            
+
         }
-        
+
     }
-    
+
     /*  Called on event of dot button press
     *   Sets variables and conditions required for inputNumber function to accept the numbers after the dot
     *   Displays the current number an dot to show it in a flow to user
@@ -159,7 +159,7 @@ class ViewController: UIViewController {
     @IBAction func dotPressed(sender: UIButton) {
         if(switchedToOn) {
             if ((!toggleCondition) && (!percentCondition)) {
-                
+
 
                 if (!noMoreDecimal) {
                     decimalTapped = 1
@@ -174,14 +174,14 @@ class ViewController: UIViewController {
                 resetValueForNextInput()
                 currentOperation = "="
             }
-            
+
         }
         else {
-            
+
         }
 
     }
-    
+
     /*  Calculates the result based in inputNumbers and operation
     *   Makes the bool variables toggleCondition & percentCondition false to accept them again in other functions (such as next input number)
     *   Sets the currentNumber to the most recently calculated result value (Also, checking if it's not an error such as division by zero)
@@ -189,7 +189,7 @@ class ViewController: UIViewController {
     */
     @IBAction func inputOperation(sender: UIButton) {
         if(switchedToOn) {
-            
+
             if ((toggleCondition) || (percentCondition)) {
                 toggleCondition = false
                 percentCondition = false
@@ -197,31 +197,34 @@ class ViewController: UIViewController {
             storeZeroCount = 0
             afterDecimalCount = 0
             switch currentOperation {
-                
+
                 case "="   :
                                 result = currentNumber
-                
+
                 case "+"   :
                                 result += currentNumber
-                
+
                 case "-"   :
                                 result -= currentNumber
-                
+
                 case "x"   :
                                 result *= currentNumber
-                
+
                 case "/"   :
                                 result /= currentNumber
-            
+
                 case "mod" :
                                 result %= currentNumber
-                
+
+                case "xor" :
+                                result = Float(Int(result) ^ Int(currentNumber))
+
                 default    :
                                 print("Invalid choice")
             }
-            
+
             resetValueForNextInput()
-            
+
             if (String(result) == "nan") {
                 result = 0
                 displayResult.text = ("Error : nan")
@@ -232,19 +235,19 @@ class ViewController: UIViewController {
             else {
                 displayResult.text = ("\(result)")
             }
-            
+
             if(((sender.titleLabel?.text) == "=") && (String(result) != "nan") && (String(result) != "inf")) {
                 currentNumber = result
             }
-            
+
             currentOperation = (sender.titleLabel?.text)!
         }
         else {
-            
+
         }
 
     }
-    
+
     /*  Called when user presses +/- button
     *   Immediately displays the result to user by negating the current number
     *   Sets toggleCondition boolean to true to use it in other functions based on some constraints
@@ -257,7 +260,7 @@ class ViewController: UIViewController {
             toggleCondition = true
         }
         else {
-            
+
         }
 
     }
@@ -274,18 +277,18 @@ class ViewController: UIViewController {
             percentCondition = true
         }
         else {
-            
+
         }
 
     }
-    
+
     /*  Called when user presses AC (All Clear) button
     *   Resets everything
     *   Sets display to 0 as result
     */
     @IBAction func allDataClear(sender: UIButton) {
         if(switchedToOn) {
-            
+
             result = 0
             currentNumber = 0
             decimalNumber = 0
@@ -299,7 +302,7 @@ class ViewController: UIViewController {
 
         }
         else {
-            
+
         }
 
     }
@@ -308,13 +311,13 @@ class ViewController: UIViewController {
     *   Use of function so it is easier to extend it in future by implementing something other in UITextView
     */
     func help() {
-        
+
         let tutorial:String = "Hi there, How are you ? I'm awesome...Atleast the fact that I've been developed by a fresh iOS developer !\nYeah, it's true...Mayuresh never knew iOS app development & see..he made me... ;)\n \n\n A Few Tips -\n\n1. Pressing \"AC\" (All Clear) button thrice toggles me between On and Off states..I vibrate so you know it :)\n2. +, -, *, /, MOD...I support them all...e.g.(1st no) mod (2nd no) gives you remainder \n3. Type a number and press +/- to toggle signs, % to calculate percent. Also, remember to enter an operation after that (no number immediately)! \n4. I am designed such that I am precise till sufficient decimal places for most operations...Yes, but if you want more complex stuff, please let my creator know, I bet he can do it ;)\n5. Finally, I love Mayuresh & I hope you also find him awesome... Thank you guys... Now turn your iPhone to portrait mode & let's do some calulations!!! "
-       
+
         displayHelp.text = tutorial
-        
+
     }
-    
+
     /*  Resets values only which are required to be reset
     */
     func resetValueForNextInput() {
@@ -324,7 +327,7 @@ class ViewController: UIViewController {
         noMoreDecimal = false
         decimalTapped = 0
     }
-    
-    
+
+
 }
 
