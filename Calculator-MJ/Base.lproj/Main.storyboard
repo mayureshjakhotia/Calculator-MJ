@@ -1006,6 +1006,7 @@
                                 <exclude reference="4Eo-UU-Vnw"/>
                                 <exclude reference="6hw-67-0dM"/>
                                 <exclude reference="tRP-50-IuU"/>
+                                <exclude reference="XOR-btn-id"/>
                                 <exclude reference="rcL-TG-rUt"/>
                                 <exclude reference="Stz-Kk-Sx1"/>
                                 <exclude reference="W3j-M5-Y2b"/>
@@ -1066,6 +1067,8 @@
                                 <exclude reference="rA8-qt-O53"/>
                                 <exclude reference="5Xt-al-MC5"/>
                                 <exclude reference="CV7-Bx-rPC"/>
+                                <exclude reference="XOR-trailing"/>
+                                <exclude reference="XOR-bottom"/>
                                 <exclude reference="Ve2-p0-CPv"/>
                                 <exclude reference="YXl-DT-Pid"/>
                                 <exclude reference="7Nb-kn-dfX"/>
@@ -1180,6 +1183,7 @@
                                 <include reference="4Eo-UU-Vnw"/>
                                 <include reference="6hw-67-0dM"/>
                                 <include reference="tRP-50-IuU"/>
+                                <include reference="XOR-btn-id"/>
                                 <include reference="rcL-TG-rUt"/>
                                 <include reference="Stz-Kk-Sx1"/>
                                 <include reference="W3j-M5-Y2b"/>
@@ -1214,6 +1218,8 @@
                                 <include reference="lH3-G2-SHj"/>
                                 <include reference="CV7-Bx-rPC"/>
                                 <include reference="YXl-DT-Pid"/>
+                                <include reference="XOR-trailing"/>
+                                <include reference="XOR-bottom"/>
                                 <include reference="DV3-8u-cRE"/>
                                 <include reference="hB1-uU-8Qp"/>
                                 <include reference="2c2-YZ-2M2"/>
